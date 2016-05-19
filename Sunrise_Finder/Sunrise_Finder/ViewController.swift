@@ -1,9 +1,12 @@
-//: Playground - noun: a place where people can play
-
-// ALL the json values are currently in greenwich time must subtract 4 in order to obtaint the right times
+//
+//  ViewController.swift
+//  Sunrise_Finder
+//
+//  Created by Andrew Elder on 2016-05-17.
+//  Copyright © 2016 Andrew Elder. All rights reserved.
+//
 
 import UIKit
-import XCPlayground
 
 class ViewController : UIViewController {
     
@@ -27,7 +30,6 @@ class ViewController : UIViewController {
             //
             let json = try NSJSONSerialization.JSONObjectWithData(theData, options: NSJSONReadingOptions.AllowFragments) as! AnyObject
             
-            
             // Print retrieved JSON
             print("")
             print("====== the retrieved JSON is as follows ======")
@@ -36,35 +38,6 @@ class ViewController : UIViewController {
             // Now we can parse this...
             print("")
             print("Now, add your parsing code here...")
-            
-            
-            if let jsonDictionary = json as? [String: AnyObject]
-            {
-                print("Dictionary")
-                print(jsonDictionary)
-                
-                print("HERE SHOULD BE SUNRISE AND SET")
-                //not acessing the value
-                if let resutls = jsonDictionary["results"] as? [String: AnyObject]{
-                    print(resutls)
-                    if let sunrise = resutls["sunrise"] as? [String: AnyObject]{
-                        print(sunrise)
-                    } else{
-                        print("nah")
-                    }
-                } else {
-                    print("error: could not get sunrise")
-                }
-                
-//                if let sunset = jsonDictionary["day_length"]{
-//                    print(sunset)
-//                }
-                
-                
-            }
-            
-            
-            
             
             // Now we can update the UI
             // (must be done asynchronously)
@@ -127,20 +100,7 @@ class ViewController : UIViewController {
         }
         
         // Define a URL to retrieve a JSON file from
-        //http://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=today
-        var address : String = "http://api.sunrise-sunset.org/json?"
-        //lat=36.7201600&lng=-4.4203400
-        //ad the ladittude and londitude later in the project
-        let lat = "43.669554"
-        //change to toronto
-        let lng = "-79.410188"
-        address += "lat="
-        address += lat
-        address += "&lng="
-        address += lng
-        address += "&date=today"
-        print(address)
-        
+        let address : String = "http://www.learnswiftonline.com/Samples/subway.json"
         
         // Try to make a URL request object
         if let url = NSURL(string: address) {
@@ -246,7 +206,4 @@ class ViewController : UIViewController {
     
 }
 
-// Embed the view controller in the live view for the current playground page
-XCPlaygroundPage.currentPage.liveView = ViewController()
-// This playground page needs to continue executing until stopped, since network reqeusts are asynchronous
-XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
+

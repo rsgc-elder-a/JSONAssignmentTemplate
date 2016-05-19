@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		490C99381CEB8AC10024AC93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C99371CEB8AC10024AC93 /* AppDelegate.swift */; };
+		490C993A1CEB8AC10024AC93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C99391CEB8AC10024AC93 /* ViewController.swift */; };
+		490C993D1CEB8AC10024AC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490C993B1CEB8AC10024AC93 /* Main.storyboard */; };
+		490C993F1CEB8AC10024AC93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 490C993E1CEB8AC10024AC93 /* Assets.xcassets */; };
+		490C99421CEB8AC10024AC93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490C99401CEB8AC10024AC93 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		490C99341CEB8AC10024AC93 /* Sunrise_Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunrise_Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		490C99371CEB8AC10024AC93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		490C99391CEB8AC10024AC93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		490C993C1CEB8AC10024AC93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		490C993E1CEB8AC10024AC93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		490C99411CEB8AC10024AC93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		490C99431CEB8AC10024AC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		490C99311CEB8AC00024AC93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		490C992B1CEB8AC00024AC93 = {
+			isa = PBXGroup;
+			children = (
+				490C99361CEB8AC10024AC93 /* Sunrise_Finder */,
+				490C99351CEB8AC10024AC93 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		490C99351CEB8AC10024AC93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				490C99341CEB8AC10024AC93 /* Sunrise_Finder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		490C99361CEB8AC10024AC93 /* Sunrise_Finder */ = {
+			isa = PBXGroup;
+			children = (
+				490C99371CEB8AC10024AC93 /* AppDelegate.swift */,
+				490C99391CEB8AC10024AC93 /* ViewController.swift */,
+				490C993B1CEB8AC10024AC93 /* Main.storyboard */,
+				490C993E1CEB8AC10024AC93 /* Assets.xcassets */,
+				490C99401CEB8AC10024AC93 /* LaunchScreen.storyboard */,
+				490C99431CEB8AC10024AC93 /* Info.plist */,
+			);
+			path = Sunrise_Finder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		490C99331CEB8AC00024AC93 /* Sunrise_Finder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 490C99461CEB8AC10024AC93 /* Build configuration list for PBXNativeTarget "Sunrise_Finder" */;
+			buildPhases = (
+				490C99301CEB8AC00024AC93 /* Sources */,
+				490C99311CEB8AC00024AC93 /* Frameworks */,
+				490C99321CEB8AC00024AC93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sunrise_Finder;
+			productName = Sunrise_Finder;
+			productReference = 490C99341CEB8AC10024AC93 /* Sunrise_Finder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		490C992C1CEB8AC00024AC93 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Andrew Elder";
+				TargetAttributes = {
+					490C99331CEB8AC00024AC93 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 490C992F1CEB8AC00024AC93 /* Build configuration list for PBXProject "Sunrise_Finder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 490C992B1CEB8AC00024AC93;
+			productRefGroup = 490C99351CEB8AC10024AC93 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				490C99331CEB8AC00024AC93 /* Sunrise_Finder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		490C99321CEB8AC00024AC93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				490C99421CEB8AC10024AC93 /* LaunchScreen.storyboard in Resources */,
+				490C993F1CEB8AC10024AC93 /* Assets.xcassets in Resources */,
+				490C993D1CEB8AC10024AC93 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		490C99301CEB8AC00024AC93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				490C993A1CEB8AC10024AC93 /* ViewController.swift in Sources */,
+				490C99381CEB8AC10024AC93 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		490C993B1CEB8AC10024AC93 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				490C993C1CEB8AC10024AC93 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		490C99401CEB8AC10024AC93 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				490C99411CEB8AC10024AC93 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		490C99441CEB8AC10024AC93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		490C99451CEB8AC10024AC93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		490C99471CEB8AC10024AC93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Sunrise_Finder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewelder.Sunrise-Finder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		490C99481CEB8AC10024AC93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Sunrise_Finder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewelder.Sunrise-Finder";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		490C992F1CEB8AC00024AC93 /* Build configuration list for PBXProject "Sunrise_Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				490C99441CEB8AC10024AC93 /* Debug */,
+				490C99451CEB8AC10024AC93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		490C99461CEB8AC10024AC93 /* Build configuration list for PBXNativeTarget "Sunrise_Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				490C99471CEB8AC10024AC93 /* Debug */,
+				490C99481CEB8AC10024AC93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 490C992C1CEB8AC00024AC93 /* Project object */;
+}
