@@ -159,10 +159,14 @@ class ViewController : UIViewController {
             // Now we can update the UI
             // (must be done asynchronously)
             dispatch_async(dispatch_get_main_queue()) {
-                
-            
-                self.jsonResult.text = "Sunrise: "
-              //  self.jsonResult.text += finalDaylegnth
+                var largeOutput = "Sunrise: "
+                largeOutput += self.finalSunrise
+                largeOutput += ", Sunset: "
+                largeOutput += self.finalSunSet
+                largeOutput += ", Day length: "
+                largeOutput += self.finalDaylegnth
+                self.jsonResult.text = largeOutput
+                //  self.jsonResult.text += self.finalDaylegnth
             }
             
         } catch let error as NSError {
