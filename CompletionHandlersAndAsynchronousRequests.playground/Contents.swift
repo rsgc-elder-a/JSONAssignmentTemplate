@@ -7,6 +7,11 @@ import XCPlayground
 
 class ViewController : UIViewController {
     
+    
+    var finalSunrise : String = ""
+    var finalSunSet : String = ""
+    var finalDaylegnth : String = ""
+    
     // Views that need to be accessible to all methods
     let jsonResult = UILabel()
     
@@ -45,20 +50,105 @@ class ViewController : UIViewController {
                 
                 print("HERE SHOULD BE SUNRISE AND SET")
                 //not acessing the value
-                if let resutls = jsonDictionary["results"] as? [String: AnyObject]{
-                    print(resutls)
-                    if let sunrise = resutls["sunrise"] as? [String: AnyObject]{
-                        print(sunrise)
+                if let results = jsonDictionary["results"] as? [String: AnyObject]{
+                    print(results)
+                    
+                    var hour = ""
+                    var restValue = ""
+                    //sunset
+                    if let sunset = results["sunset"]{
+                        
+                        
+                        let sunsetS : String = sunset as! String
+                        
+                        var count = 0
+                        for char in sunsetS.characters {
+                            count += 1
+                            if(count < 3){
+                                let charS : String = String(char)
+                                hour += charS
+                                
+                            } else if(count < 10) {
+                                let charS : String = String(char)
+                                restValue += charS
+                            }
+                        }
+                        
+                        var hourI:Int = Int(hour)!
+                        hourI = hourI - 4
+                        
+                        var fullSunset = String(hourI)
+                        fullSunset += restValue
+                        fullSunset += "PM"
+                        print("Sunset:")
+                        print(fullSunset)
+                        
+                        finalSunSet = fullSunset
+                        
                     } else{
                         print("nah")
                     }
+                    
+                    
+                    
+                    
+                    var hour2 = ""
+                    var restValue2 = ""
+                    
+                    //sunset
+                    if let sunrise = results["sunrise"]{
+                        
+                        let sunsetS : String = sunrise as! String
+                        
+                        var count = 0
+                        for char in sunsetS.characters {
+                            count += 1
+                            if(count < 2){
+                                let charS : String = String(char)
+                                hour2 += charS
+                                
+                            } else {
+                                let charS : String = String(char)
+                                restValue2 += charS
+                            }
+                        }
+                        
+                        var hourI:Int = Int(hour2)!
+                        hourI = hourI - 4
+                        
+                        var fullSunrise = String(hourI)
+                        fullSunrise += restValue2
+                        print("Sunrise:")
+                        print(fullSunrise)
+                        
+                        finalSunrise = fullSunrise
+                        
+                    } else{
+                        print("nah")
+                    }
+                    
+                    //sunset
+                    if let day_length = results["day_length"]{
+                        print("day_length: ")
+                        print(day_length)
+                        
+                        finalDaylegnth = day_length as! String
+                    } else{
+                        print("nah")
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
                 } else {
                     print("error: could not get sunrise")
                 }
                 
-//                if let sunset = jsonDictionary["day_length"]{
-//                    print(sunset)
-//                }
+                //                if let sunset = jsonDictionary["day_length"]{
+                //                    print(sunset)
+                //                }
                 
                 
             }
@@ -69,7 +159,10 @@ class ViewController : UIViewController {
             // Now we can update the UI
             // (must be done asynchronously)
             dispatch_async(dispatch_get_main_queue()) {
-                self.jsonResult.text = "parsed JSON should go here"
+                
+            
+                self.jsonResult.text = "Sunrise: "
+              //  self.jsonResult.text += finalDaylegnth
             }
             
         } catch let error as NSError {
