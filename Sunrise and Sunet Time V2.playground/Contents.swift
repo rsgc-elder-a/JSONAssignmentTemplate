@@ -10,10 +10,13 @@ class ViewController : UIViewController {
     
     var finalSunrise : String = ""
     var finalSunSet : String = ""
-    var finalDaylegnth : String = ""
+    var finalDaylength : String = ""
     
     // Views that need to be accessible to all methods
-    let jsonResult = UILabel()
+    let jsonSunrise = UILabel()
+    let jsonSunset = UILabel()
+    let jsonDaylegnth = UILabel()
+    
     
     // If data is successfully retrieved from the server, we can parse it here
     func parseMyJSON(theData : NSData) {
@@ -132,7 +135,7 @@ class ViewController : UIViewController {
                         print("day_length: ")
                         print(day_length)
                         
-                        finalDaylegnth = day_length as! String
+                        finalDaylength = day_length as! String
                     } else{
                         print("nah")
                     }
@@ -157,13 +160,27 @@ class ViewController : UIViewController {
             // Now we can update the UI
             // (must be done asynchronously)
             dispatch_async(dispatch_get_main_queue()) {
-                var largeOutput = "Sunrise: "
-                largeOutput += self.finalSunrise
-                largeOutput += ", Sunset: "
-                largeOutput += self.finalSunSet
-                largeOutput += ", Day length: "
-                largeOutput += self.finalDaylegnth
-                self.jsonResult.text = largeOutput
+                //                var largeOutput = "Sunrise: "
+                //
+                //                largeOutput += self.finalSunrise
+                //                largeOutput += ", Sunset: "
+                //                largeOutput += self.finalSunSet
+                //                largeOutput += ", Day length: "
+                //                largeOutput += self.finalDaylegnth
+                //                self.jsonResult.text = largeOutput
+                
+                var sunRise = "Sunrise: "
+                sunRise += self.finalSunrise
+                self.jsonSunrise.text = sunRise
+                
+                var sunSet = "Sunset: "
+                sunSet += self.finalSunSet
+                self.jsonSunset.text = sunSet
+                
+                var dayLength = "Day Length: "
+                dayLength += self.finalDaylength
+                self.jsonDaylegnth.text = dayLength
+                
                 //  self.jsonResult.text += self.finalDaylegnth
             }
             
@@ -280,23 +297,51 @@ class ViewController : UIViewController {
          */
         
         // Set the label text and appearance
-        jsonResult.text = "..."
-        jsonResult.textColor = UIColor.whiteColor()
-        jsonResult.font = UIFont.systemFontOfSize(12)
-        jsonResult.numberOfLines = 2   // makes number of lines dynamic
+        jsonSunrise.text = "..."
+        jsonSunrise.textColor = UIColor.whiteColor()
+        jsonSunrise.font = UIFont.systemFontOfSize(30)
+        jsonSunrise.numberOfLines = 2   // makes number of lines dynamic
         // e.g.: multiple lines will show up
-        jsonResult.textAlignment = NSTextAlignment.Center
+        jsonSunrise.textAlignment = NSTextAlignment.Center
         
         // Required to autolayout this label
-        jsonResult.translatesAutoresizingMaskIntoConstraints = false
+        jsonSunrise.translatesAutoresizingMaskIntoConstraints = false
         
         // Add the label to the superview
-        view.addSubview(jsonResult)
+        view.addSubview(jsonSunrise)
+        
+        // Set the label text and appearance
+        jsonSunset.text = "..."
+        jsonSunset.textColor = UIColor.whiteColor()
+        jsonSunset.font = UIFont.systemFontOfSize(30)
+        jsonSunset.numberOfLines = 2   // makes number of lines dynamic
+        // e.g.: multiple lines will show up
+        jsonSunset.textAlignment = NSTextAlignment.Center
+        
+        // Required to autolayout this label
+        jsonSunset.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the label to the superview
+        view.addSubview(jsonSunset)
+        
+        // Set the label text and appearance
+        jsonDaylegnth.text = "..."
+        jsonDaylegnth.textColor = UIColor.whiteColor()
+        jsonDaylegnth.font = UIFont.systemFontOfSize(30)
+        jsonDaylegnth.numberOfLines = 2   // makes number of lines dynamic
+        // e.g.: multiple lines will show up
+        jsonDaylegnth.textAlignment = NSTextAlignment.Center
+        
+        // Required to autolayout this label
+        jsonDaylegnth.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the label to the superview
+        view.addSubview(jsonDaylegnth)
         
         /*
          * Add a button
          */
-        let getData = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
+        let getData = UIButton(frame: CGRect(x: 0, y: 0, width: 160, height: 40))
         
         // Make the button, when touched, run the calculate method
         getData.addTarget(self, action: #selector(ViewController.getMyJSON), forControlEvents: UIControlEvents.TouchUpInside)
@@ -322,12 +367,14 @@ class ViewController : UIViewController {
         
         // Create a dictionary of views that will be used in the layout constraints defined below
         let viewsDictionary : [String : AnyObject] = [
-            "title": jsonResult,
-            "getData": getData]
+            "jsonSunrise": jsonSunrise,
+            "getData": getData,
+            "jsonSunset" : jsonSunset,
+            "jsonDaylegnth" : jsonDaylegnth]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-50-[getData]-[title]",
+            "V:|-70-[getData]-20-[jsonSunrise]-20-[jsonSunset]-20-[jsonDaylegnth]",
             options: [],
             metrics: nil,
             views: viewsDictionary)

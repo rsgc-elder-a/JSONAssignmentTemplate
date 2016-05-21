@@ -12,6 +12,7 @@
 		490C993D1CEB8AC10024AC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490C993B1CEB8AC10024AC93 /* Main.storyboard */; };
 		490C993F1CEB8AC10024AC93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 490C993E1CEB8AC10024AC93 /* Assets.xcassets */; };
 		490C99421CEB8AC10024AC93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490C99401CEB8AC10024AC93 /* LaunchScreen.storyboard */; };
+		49F9D8331CEF4E8F0044D552 /* TestLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 49F9D8321CEF4E8F0044D552 /* TestLocation.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		490C993E1CEB8AC10024AC93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		490C99411CEB8AC10024AC93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		490C99431CEB8AC10024AC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F9D8321CEF4E8F0044D552 /* TestLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TestLocation.gpx; path = ../../../../../../Desktop/TestLocation.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		490C992B1CEB8AC00024AC93 = {
 			isa = PBXGroup;
 			children = (
+				49F9D8321CEF4E8F0044D552 /* TestLocation.gpx */,
 				490C99361CEB8AC10024AC93 /* Sunrise_Finder */,
 				490C99351CEB8AC10024AC93 /* Products */,
 			);
@@ -124,6 +127,7 @@
 			files = (
 				490C99421CEB8AC10024AC93 /* LaunchScreen.storyboard in Resources */,
 				490C993F1CEB8AC10024AC93 /* Assets.xcassets in Resources */,
+				49F9D8331CEF4E8F0044D552 /* TestLocation.gpx in Resources */,
 				490C993D1CEB8AC10024AC93 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +292,7 @@
 				490C99481CEB8AC10024AC93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

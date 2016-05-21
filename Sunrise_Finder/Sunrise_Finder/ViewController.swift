@@ -6,9 +6,17 @@
 //  Copyright © 2016 Andrew Elder. All rights reserved.
 //
 
+
 import UIKit
+import CoreLocation     // Required to obtain user's location
+
 
 class ViewController : UIViewController {
+    
+    
+    var finalSunrise : String = ""
+    var finalSunSet : String = ""
+    var finalDaylegnth : String = ""
     
     // Views that need to be accessible to all methods
     let jsonResult = UILabel()
@@ -26,9 +34,10 @@ class ViewController : UIViewController {
             
             // Do the initial de-serialization
             // Source JSON is here:
-            // http://www.learnswiftonline.com/Samples/subway.json
+            //
             //
             let json = try NSJSONSerialization.JSONObjectWithData(theData, options: NSJSONReadingOptions.AllowFragments) as! AnyObject
+            
             
             // Print retrieved JSON
             print("")
@@ -39,10 +48,129 @@ class ViewController : UIViewController {
             print("")
             print("Now, add your parsing code here...")
             
+            
+            if let jsonDictionary = json as? [String: AnyObject]
+            {
+                print("Dictionary")
+                print(jsonDictionary)
+                
+                print("HERE SHOULD BE SUNRISE AND SET")
+                //not acessing the value
+                if let results = jsonDictionary["results"] as? [String: AnyObject]{
+                    print(results)
+                    
+                    var hour = ""
+                    var restValue = ""
+                    //sunset
+                    if let sunset = results["sunset"]{
+                        
+                        
+                        let sunsetS : String = sunset as! String
+                        
+                        var count = 0
+                        for char in sunsetS.characters {
+                            count += 1
+                            if(count < 3){
+                                let charS : String = String(char)
+                                hour += charS
+                                
+                            } else if(count < 10) {
+                                let charS : String = String(char)
+                                restValue += charS
+                            }
+                        }
+                        
+                        var hourI:Int = Int(hour)!
+                        hourI = hourI - 4
+                        
+                        var fullSunset = String(hourI)
+                        fullSunset += restValue
+                        fullSunset += "PM"
+                        print("Sunset:")
+                        print(fullSunset)
+                        
+                        finalSunSet = fullSunset
+                        
+                    } else{
+                        print("nah")
+                    }
+                    
+                    
+                    
+                    
+                    var hour2 = ""
+                    var restValue2 = ""
+                    
+                    //sunset
+                    if let sunrise = results["sunrise"]{
+                        
+                        let sunsetS : String = sunrise as! String
+                        
+                        var count = 0
+                        for char in sunsetS.characters {
+                            count += 1
+                            if(count < 2){
+                                let charS : String = String(char)
+                                hour2 += charS
+                                
+                            } else {
+                                let charS : String = String(char)
+                                restValue2 += charS
+                            }
+                        }
+                        
+                        var hourI:Int = Int(hour2)!
+                        hourI = hourI - 4
+                        
+                        var fullSunrise = String(hourI)
+                        fullSunrise += restValue2
+                        print("Sunrise:")
+                        print(fullSunrise)
+                        
+                        finalSunrise = fullSunrise
+                        
+                    } else{
+                        print("nah")
+                    }
+                    
+                    //sunset
+                    if let day_length = results["day_length"]{
+                        print("day_length: ")
+                        print(day_length)
+                        
+                        finalDaylegnth = day_length as! String
+                    } else{
+                        print("nah")
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                } else {
+                    print("error: could not get sunrise")
+                }
+                
+                //                if let sunset = jsonDictionary["day_length"]{
+                //                    print(sunset)
+                //                }
+                
+                
+            }
+            
+            
             // Now we can update the UI
             // (must be done asynchronously)
             dispatch_async(dispatch_get_main_queue()) {
-                self.jsonResult.text = "parsed JSON should go here"
+                var largeOutput = "Sunrise: "
+                largeOutput += self.finalSunrise
+                largeOutput += ", Sunset: "
+                largeOutput += self.finalSunSet
+                largeOutput += ", Day length: "
+                largeOutput += self.finalDaylegnth
+                self.jsonResult.text = largeOutput
+                //  self.jsonResult.text += self.finalDaylegnth
             }
             
         } catch let error as NSError {
@@ -100,7 +228,20 @@ class ViewController : UIViewController {
         }
         
         // Define a URL to retrieve a JSON file from
-        let address : String = "http://www.learnswiftonline.com/Samples/subway.json"
+        //http://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=today
+        var address : String = "http://api.sunrise-sunset.org/json?"
+        //lat=36.7201600&lng=-4.4203400
+        //ad the ladittude and londitude later in the project
+        let lat = "43.669554"
+        //change to toronto
+        let lng = "-79.410188"
+        address += "lat="
+        address += lat
+        address += "&lng="
+        address += lng
+        address += "&date=today"
+        print(address)
+        
         
         // Try to make a URL request object
         if let url = NSURL(string: address) {
@@ -138,7 +279,7 @@ class ViewController : UIViewController {
         super.viewDidLoad()
         
         // Make the view's background be gray
-        view.backgroundColor = UIColor.lightGrayColor()
+        view.backgroundColor = UIColor.redColor()
         
         /*
          * Further define label that will show JSON data
@@ -146,8 +287,9 @@ class ViewController : UIViewController {
         
         // Set the label text and appearance
         jsonResult.text = "..."
+        jsonResult.textColor = UIColor.whiteColor()
         jsonResult.font = UIFont.systemFontOfSize(12)
-        jsonResult.numberOfLines = 0   // makes number of lines dynamic
+        jsonResult.numberOfLines = 2   // makes number of lines dynamic
         // e.g.: multiple lines will show up
         jsonResult.textAlignment = NSTextAlignment.Center
         
@@ -166,7 +308,7 @@ class ViewController : UIViewController {
         getData.addTarget(self, action: #selector(ViewController.getMyJSON), forControlEvents: UIControlEvents.TouchUpInside)
         
         // Set the button's title
-        getData.setTitle("Get my JSON!", forState: UIControlState.Normal)
+        getData.setTitle("Get Sunrise, Sunset and Day length!", forState: UIControlState.Normal)
         
         // Required to auto layout this button
         getData.translatesAutoresizingMaskIntoConstraints = false
