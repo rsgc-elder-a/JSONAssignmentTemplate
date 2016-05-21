@@ -11,12 +11,13 @@ class ViewController : UIViewController {
     var finalSunrise : String = ""
     var finalSunSet : String = ""
     var finalDaylength : String = ""
+    var finalSolorNoon : String = ""
     
     // Views that need to be accessible to all methods
     let jsonSunrise = UILabel()
     let jsonSunset = UILabel()
     let jsonDaylegnth = UILabel()
-    
+    var jsonSolorNoon = UILabel()
     
     // If data is successfully retrieved from the server, we can parse it here
     func parseMyJSON(theData : NSData) {
@@ -140,6 +141,43 @@ class ViewController : UIViewController {
                         print("nah")
                     }
                     
+                    var hour3 = ""
+                    var restValue3 = ""
+                    //solor NOON
+                    if let solornoon = results["solar_noon"]{
+                        
+                        let solorNoonS : String = solornoon as! String
+                        
+                        var count = 0
+                        for char in solorNoonS.characters {
+                            count += 1
+                            if(count < 2){
+                                let charS : String = String(char)
+                                hour3 += charS
+                                
+                            } else {
+                                let charS : String = String(char)
+                                restValue3 += charS
+                            }
+                        }
+                        
+                        var hourI:Int = Int(hour3)!
+                        hourI = hourI - 4
+                        
+                        var fullSolorNoon = String(hourI)
+                        fullSolorNoon += restValue2
+                        print("Solor Noon:")
+                        print(fullSolorNoon)
+                        
+                        finalSolorNoon = fullSolorNoon
+                        
+                    } else{
+                        print("nah")
+                    }
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -149,10 +187,9 @@ class ViewController : UIViewController {
                     print("error: could not get sunrise")
                 }
                 
-                //                if let sunset = jsonDictionary["day_length"]{
-                //                    print(sunset)
-                //                }
                 
+                
+
                 
             }
             
@@ -180,6 +217,10 @@ class ViewController : UIViewController {
                 var dayLength = "Day Length: "
                 dayLength += self.finalDaylength
                 self.jsonDaylegnth.text = dayLength
+                
+                var solorNoon = "Solar Noon: "
+                solorNoon += self.finalSolorNoon
+                self.jsonSolorNoon.text = solorNoon
                 
                 //  self.jsonResult.text += self.finalDaylegnth
             }
@@ -337,6 +378,22 @@ class ViewController : UIViewController {
         
         // Add the label to the superview
         view.addSubview(jsonDaylegnth)
+
+        
+        // Set the label text and appearance
+        jsonSolorNoon.text = "..."
+        jsonSolorNoon.textColor = UIColor.whiteColor()
+        jsonSolorNoon.font = UIFont.systemFontOfSize(30)
+        jsonSolorNoon.numberOfLines = 2   // makes number of lines dynamic
+        // e.g.: multiple lines will show up
+        jsonSolorNoon.textAlignment = NSTextAlignment.Center
+        
+        // Required to autolayout this label
+        jsonSolorNoon.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the label to the superview
+        view.addSubview(jsonSolorNoon)
+        
         
         /*
          * Add a button
@@ -347,7 +404,7 @@ class ViewController : UIViewController {
         getData.addTarget(self, action: #selector(ViewController.getMyJSON), forControlEvents: UIControlEvents.TouchUpInside)
         
         // Set the button's title
-        getData.setTitle("Get Sunrise, Sunset and Day length!", forState: UIControlState.Normal)
+        getData.setTitle("Click to get you data!", forState: UIControlState.Normal)
         
         // Required to auto layout this button
         getData.translatesAutoresizingMaskIntoConstraints = false
@@ -370,11 +427,12 @@ class ViewController : UIViewController {
             "jsonSunrise": jsonSunrise,
             "getData": getData,
             "jsonSunset" : jsonSunset,
-            "jsonDaylegnth" : jsonDaylegnth]
+            "jsonDaylegnth" : jsonDaylegnth,
+            "jsonSolorNoon" : jsonSolorNoon]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-70-[getData]-20-[jsonSunrise]-20-[jsonSunset]-20-[jsonDaylegnth]",
+            "V:|-30-[getData]-50-[jsonSunrise]-20-[jsonSunset]-20-[jsonDaylegnth]-20-[jsonSolorNoon]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
