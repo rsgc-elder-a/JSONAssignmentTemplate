@@ -48,7 +48,7 @@
     <dict>
         <key>NSExceptionDomains</key>
         <dict>
-            <key>app.toronto.ca</key>
+            <key>http://api.sunrise-sunset.org/json?</key>
             <dict>
                 <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
                 <true/>

@@ -18,6 +18,7 @@ class ViewController : UIViewController {
     let jsonSunset = UILabel()
     let jsonDaylegnth = UILabel()
     var jsonSolorNoon = UILabel()
+    var sunnyDay = UILabel()
     
     // If data is successfully retrieved from the server, we can parse it here
     func parseMyJSON(theData : NSData) {
@@ -175,21 +176,13 @@ class ViewController : UIViewController {
                         print("nah")
                     }
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                 } else {
                     print("error: could not get sunrise")
                 }
                 
                 
                 
-
+                
                 
             }
             
@@ -197,14 +190,7 @@ class ViewController : UIViewController {
             // Now we can update the UI
             // (must be done asynchronously)
             dispatch_async(dispatch_get_main_queue()) {
-                //                var largeOutput = "Sunrise: "
-                //
-                //                largeOutput += self.finalSunrise
-                //                largeOutput += ", Sunset: "
-                //                largeOutput += self.finalSunSet
-                //                largeOutput += ", Day length: "
-                //                largeOutput += self.finalDaylegnth
-                //                self.jsonResult.text = largeOutput
+                
                 
                 var sunRise = "Sunrise: "
                 sunRise += self.finalSunrise
@@ -221,6 +207,8 @@ class ViewController : UIViewController {
                 var solorNoon = "Solar Noon: "
                 solorNoon += self.finalSolorNoon
                 self.jsonSolorNoon.text = solorNoon
+                
+                self.sunnyDay.text = "Have a sunny day!"
                 
                 //  self.jsonResult.text += self.finalDaylegnth
             }
@@ -378,7 +366,7 @@ class ViewController : UIViewController {
         
         // Add the label to the superview
         view.addSubview(jsonDaylegnth)
-
+        
         
         // Set the label text and appearance
         jsonSolorNoon.text = "..."
@@ -395,6 +383,21 @@ class ViewController : UIViewController {
         view.addSubview(jsonSolorNoon)
         
         
+        // Set the label text and appearance
+        sunnyDay.text = "..."
+        sunnyDay.textColor = UIColor.whiteColor()
+        sunnyDay.font = UIFont.systemFontOfSize(45)
+        sunnyDay.numberOfLines = 2   // makes number of lines dynamic
+        // e.g.: multiple lines will show up
+        sunnyDay.textAlignment = NSTextAlignment.Center
+        
+        // Required to autolayout this label
+        sunnyDay.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the label to the superview
+        view.addSubview(sunnyDay)
+        
+        
         /*
          * Add a button
          */
@@ -403,9 +406,9 @@ class ViewController : UIViewController {
         // Make the button, when touched, run the calculate method
         getData.addTarget(self, action: #selector(ViewController.getMyJSON), forControlEvents: UIControlEvents.TouchUpInside)
         
+        getData.titleLabel!.font =  UIFont(name: "Arial", size: 40)
         // Set the button's title
         getData.setTitle("Click to get you data!", forState: UIControlState.Normal)
-        
         // Required to auto layout this button
         getData.translatesAutoresizingMaskIntoConstraints = false
         
@@ -428,11 +431,12 @@ class ViewController : UIViewController {
             "getData": getData,
             "jsonSunset" : jsonSunset,
             "jsonDaylegnth" : jsonDaylegnth,
-            "jsonSolorNoon" : jsonSolorNoon]
+            "jsonSolorNoon" : jsonSolorNoon,
+            "sunnyDay" : sunnyDay]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-30-[getData]-50-[jsonSunrise]-20-[jsonSunset]-20-[jsonDaylegnth]-20-[jsonSolorNoon]",
+            "V:|-30-[getData]-50-[jsonSunrise]-20-[jsonSunset]-20-[jsonDaylegnth]-20-[jsonSolorNoon]-50-[sunnyDay]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
