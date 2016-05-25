@@ -406,9 +406,9 @@ class ViewController : UIViewController {
         // Make the button, when touched, run the calculate method
         getData.addTarget(self, action: #selector(ViewController.getMyJSON), forControlEvents: UIControlEvents.TouchUpInside)
         
-        getData.titleLabel!.font =  UIFont(name: "Arial", size: 40)
+        getData.titleLabel!.font =  UIFont(name: "Arial", size: 38)
         // Set the button's title
-        getData.setTitle("Click to get you data!", forState: UIControlState.Normal)
+        getData.setTitle("Click to get your data!", forState: UIControlState.Normal)
         // Required to auto layout this button
         getData.translatesAutoresizingMaskIntoConstraints = false
         
